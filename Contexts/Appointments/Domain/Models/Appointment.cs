@@ -1,8 +1,10 @@
+using Roffies.Api.Contexts.Shared.Domain.Model;
+
 namespace Roffies.Api.Contexts.Appointments.Domain.Models;
 
-public class Appointment
+public class Appointment : BaseEntity
 {
-    public Guid Id { get; set; }
+
     public int UserId { get; set; }
     public int WorkshopId { get; set; }
     public int VehicleId { get; set; }

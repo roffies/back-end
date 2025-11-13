@@ -5,7 +5,7 @@ using Roffies.Api.Contexts.Appointments.Domain.Models;
 
 namespace Roffies.Api.Contexts.Appointments.Domain.Infraestructure;
 
-public interface IAppointmentRepository
+public interface IAppointmentRepository 
 {
     Task<IEnumerable<Appointment>> ListAsync();
     Task<Appointment?> FindByIdAsync(Guid id);
