@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Roffies.Api.Contexts.Appointments.Domain.Infraestructure;
 using Roffies.Api.Contexts.Appointments.Domain.Models;
-using Roffies.Api.Contexts.Appointments.Infraestructure.Persistence;
 using Roffies.Api.Contexts.Shared.Infraestructure;
 
 

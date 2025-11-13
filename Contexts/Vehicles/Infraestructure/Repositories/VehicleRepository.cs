@@ -2,7 +2,6 @@ using Microsoft.EntityFrameworkCore;
 using Roffies.Api.Contexts.Shared.Infraestructure;
 using Roffies.Api.Contexts.Vehicles.Domain.Infraestructure;
 using Roffies.Api.Contexts.Vehicles.Domain.Models;
-using Roffies.Api.Contexts.Vehicles.Infraestructure.Persistence;
 
 namespace Roffies.Api.Contexts.Vehicles.Infraestructure.Repositories;
 
