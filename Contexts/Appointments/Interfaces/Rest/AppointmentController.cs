@@ -23,6 +23,8 @@ public class AppointmentController : ControllerBase
     public async Task<IActionResult> GetAll()
         => Ok(await queryService.GetAllAsync());
 
+    
+    
     [HttpGet("{id:guid}")]
     public async Task<IActionResult> GetById(Guid id)
     {
@@ -36,4 +38,13 @@ public class AppointmentController : ControllerBase
         var newAppointment = await commandService.CreateAsync(request);
         return CreatedAtAction(nameof(GetById), new { id = newAppointment.Id }, newAppointment);
     }
+    
+    [HttpPut("{id:guid}")]
+    public async Task<IActionResult> Update(Guid id, Appointment request)
+    {
+        var updated = await commandService.UpdateAsync(id, request);
+
+        return updated ? NoContent() : NotFound();
+    }
+    
 }

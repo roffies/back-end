@@ -17,4 +17,15 @@ public class VehicleCommandService : IVehicleCommandService
     {
         await _repository.AddAsync(vehicle);
     }
+
+    public async Task<bool> DeleteAsync(Guid id)
+    {
+        var existingVehicle = await _repository.GetByIdAsync(id);
+
+        if (existingVehicle == null)
+            return false;
+
+        await _repository.DeleteAsync(id);
+        return true;
+    }
 }

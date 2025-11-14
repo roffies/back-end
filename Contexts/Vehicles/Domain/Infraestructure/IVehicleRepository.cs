@@ -5,7 +5,7 @@ namespace Roffies.Api.Contexts.Vehicles.Domain.Infraestructure;
 public interface IVehicleRepository
 {
     Task<IEnumerable<Vehicle>> ListAsync();
-    Task<Vehicle?> FindByIdAsync(Guid id);
+    Task<Vehicle?> GetByIdAsync(Guid id);
     Task AddAsync(Vehicle vehicle);
     Task UpdateAsync(Vehicle vehicle);
     Task DeleteAsync(Guid id);

@@ -24,11 +24,28 @@ public class VehicleController : ControllerBase
         var vehicles = await _queryService.GetAllAsync();
         return Ok(vehicles);
     }
+    
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById(Guid id)
+    {
+        var vehicle = await _queryService.GetByIdAsync(id);
+        if (vehicle == null)
+            return NotFound();
+
+        return Ok(vehicle);
+    }
 
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] Vehicle vehicle)
     {
         await _commandService.AddAsync(vehicle);
         return Ok(vehicle);
+    }
+    
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(Guid id)
+    {
+        await _commandService.DeleteAsync(id);
+        return NoContent();
     }
 }

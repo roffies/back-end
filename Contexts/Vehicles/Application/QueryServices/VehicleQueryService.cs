@@ -16,4 +16,10 @@ public class VehicleQueryService : IVehicleQueryService
     {
         return await _repository.ListAsync();
     }
+    
+
+    public Task<Vehicle?> GetByIdAsync(Guid id)
+    {
+        return _repository.GetByIdAsync(id);
+    }
 }

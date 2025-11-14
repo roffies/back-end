@@ -25,9 +25,11 @@ public class VehicleRepository : IVehicleRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task<Vehicle?> FindByIdAsync(Guid id)
+
+    
+    public async Task<Vehicle?> GetByIdAsync(Guid id)
     {
-        return await _context.Vehicles.FindAsync(id);
+        return await _context.Vehicles.FirstOrDefaultAsync(v => v.Id == id);
     }
 
     public async Task UpdateAsync(Vehicle vehicle)
