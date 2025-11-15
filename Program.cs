@@ -5,6 +5,11 @@ using Roffies.Api.Contexts.Appointments.Application.QueryServices;
 using Roffies.Api.Contexts.Appointments.Domain.Infraestructure;
 using Roffies.Api.Contexts.Appointments.Domain.Services;
 using Roffies.Api.Contexts.Shared.Infraestructure;
+using Roffies.Api.Contexts.Users.Application.CommandServices;
+using Roffies.Api.Contexts.Users.Application.QueryServices;
+using Roffies.Api.Contexts.Users.Domain.Infraestructure;
+using Roffies.Api.Contexts.Users.Domain.Services;
+using Roffies.Api.Contexts.Users.Infraestructure.Repositories;
 using Roffies.Api.Contexts.Vehicles.Application.CommandServices;
 using Roffies.Api.Contexts.Vehicles.Application.QueryServices;
 using Roffies.Api.Contexts.Vehicles.Domain.Infraestructure;
@@ -41,6 +46,10 @@ builder.Services.AddScoped<IVehicleCommandService, VehicleCommandService>();
 builder.Services.AddScoped<IWorkshopRepository, WorkshopRepository>();
 builder.Services.AddScoped<IWorkshopQueryService, WorkshopQueryService>();
 builder.Services.AddScoped<IWorkshopCommandService, WorkshopCommandService>();
+//User
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserQueryService, UserQueryService>();
+builder.Services.AddScoped<IUserCommandService, UserCommandService>();
 
 builder.Services.AddControllers();
 

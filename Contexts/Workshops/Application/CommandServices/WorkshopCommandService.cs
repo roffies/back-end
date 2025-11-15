@@ -15,6 +15,7 @@ public class WorkshopCommandService : IWorkshopCommandService
 
     public async Task<Workshop> CreateAsync(Workshop workshop)
     {
+        workshop.Validate();
         await repository.AddAsync(workshop);
         return workshop;
     }
@@ -33,6 +34,7 @@ public class WorkshopCommandService : IWorkshopCommandService
         workshop.Latitude = updated.Latitude;
         workshop.Longitude = updated.Longitude;
         workshop.Status = updated.Status;
+        workshop.Validate();
 
         await repository.UpdateAsync(workshop);
         return true;

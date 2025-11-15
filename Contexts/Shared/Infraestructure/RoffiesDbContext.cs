@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Roffies.Api.Contexts.Appointments.Domain.Models;
+using Roffies.Api.Contexts.Users.Domain.Models;
 using Roffies.Api.Contexts.Vehicles.Domain.Models;
 using Roffies.Api.Contexts.Workshops.Domain.Models;
 
@@ -14,6 +15,7 @@ public class RoffiesDbContext : DbContext
     
     public DbSet<Workshop> Workshops { get; set; }
     public DbSet<WorkshopService> WorkshopServices { get; set; }
+    public DbSet<User> Users { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -21,7 +23,7 @@ public class RoffiesDbContext : DbContext
 
         modelBuilder.Entity<Appointment>().ToTable("appointments");
         modelBuilder.Entity<Vehicle>().ToTable("vehicles");
-        
+        modelBuilder.Entity<User>().ToTable("users");
         modelBuilder.Entity<Workshop>().ToTable("workshops");
         modelBuilder.Entity<WorkshopService>().ToTable("workshop_services");
         modelBuilder.Entity<Workshop>()
@@ -29,5 +31,6 @@ public class RoffiesDbContext : DbContext
             .WithOne(s => s.Workshop)
             .HasForeignKey(s => s.WorkshopId)
             .OnDelete(DeleteBehavior.Cascade);
+        
     }
 }

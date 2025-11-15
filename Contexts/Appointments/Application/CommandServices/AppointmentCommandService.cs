@@ -9,6 +9,7 @@ public class AppointmentCommandService(IAppointmentRepository appointmentReposit
 {
     public async Task<Appointment> CreateAsync(Appointment appointment)
     {
+        appointment.Validate();
         await appointmentRepository.AddAsync(appointment);
         return appointment;
     }
@@ -25,7 +26,8 @@ public class AppointmentCommandService(IAppointmentRepository appointmentReposit
         appointment.EstimatedDuration = updated.EstimatedDuration;
         appointment.EstimatedCost = updated.EstimatedCost;
         appointment.Notes = updated.Notes;
-
+        appointment.Validate();
+        
         await appointmentRepository.UpdateAsync(appointment);
         return true;
     }

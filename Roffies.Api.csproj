@@ -14,8 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Contexts\Appointments\Infraestructure\Persistence\" />
-    <Folder Include="Contexts\Vehicles\Infraestructure\Persistence\" />
     <Folder Include="Resources\" />
   </ItemGroup>
 

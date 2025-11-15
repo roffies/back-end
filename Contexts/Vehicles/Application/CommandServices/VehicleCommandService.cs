@@ -15,6 +15,7 @@ public class VehicleCommandService : IVehicleCommandService
 
     public async Task AddAsync(Vehicle vehicle)
     {
+        vehicle.Validate();
         await _repository.AddAsync(vehicle);
     }
 
@@ -24,7 +25,7 @@ public class VehicleCommandService : IVehicleCommandService
 
         if (existingVehicle == null)
             return false;
-
+        
         await _repository.DeleteAsync(id);
         return true;
     }
